@@ -11,9 +11,7 @@ Resources:
       # See https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-httpapi-httpapicorsconfiguration.html   
       CorsConfiguration:
         AllowMethods:
-          - GET
           - POST
-          - DELETE
           - OPTIONS
         AllowHeaders:
           - "*"   
@@ -48,7 +46,7 @@ Resources:
           Type: HttpApi
           Properties:
             Path: /uploads
-            Method: get
+            Method: post
             ApiId: !Ref MyApi  
 
   ## S3 bucket

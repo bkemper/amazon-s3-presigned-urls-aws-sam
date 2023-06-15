@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Stack Name = sam-app
+# Lambda = UploadRequestFunction
+# API Gateway = https://t3yrnwim55.execute-api.us-east-1.amazonaws.com
+
+# see, https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorial-lambda-sam-deploy-update.html
+sam package \
+  --template-file template.yaml \
+  --output-template-file package.yaml  \
+  --s3-bucket sam-app-s3uploadbucket-qq4vv0zexvpf \
+  --profile brianpatrickkemper
+
+sam deploy \
+  --template-file package.yaml \
+  --stack-name sam-app \
+  --capabilities CAPABILITY_IAM \
+  --profile brianpatrickkemper
